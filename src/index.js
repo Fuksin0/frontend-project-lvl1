@@ -1,50 +1,27 @@
-#!/usr/bin/env node
+import readlineSync from 'readline-sync';
 
-import readlineSync from "readline-sync";
-import question from  "../src/cli.js";
+const gameLogic = (gameTask,roundsControl) => {
 
-console.log("Welcome to the Brain Games!");
+console.log('Welcome to the Brain Games!'); 
 
-const name = question();
+const name = readlineSync.question('May i have your name? ');
+console.log(`Hello, ${name}!`);
 
-export const quiz = 'Answer "yes" if number odd otherwise answer "no".';
-console.log(quiz);
+console.log(gameTask);
 
-const numbers = () => {
-  const num = Math.round(Math.random() * 100 + 1);
-  return num;
-};
+const roundsCount = 3;
 
-let count = 0;
-const stringYes = "yes"; 
-const stringNo = "no";
-
-for (let i = 0; i <= 3; i += 1) {
-  const random = numbers();
-  console.log("Question:", random);
-  const answer = readlineSync.question("Your answer:");
-  if (random % 2 === 0) {
-    if (answer === stringYes) {
-      console.log("Correct!");
-      count += 1;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${stringYes}'.\nLet's try again, ${name}!`);
-      break;
-    }
-  }
-
-  if (random % 2 !== 0) {
-    if (answer === stringNo) {
-      console.log("Correct!");
-      count += 1;
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${stringNo}'. \nLet's try again, ${name}!`);
-      break;
-    }
-  }
-
-  if (count === 3) {
-    console.log(`Congratulations, ${name}!`);
-    break;
-  }
+for(let i = 0;i < roundsCount;i += 1){
+    const [randomExpression, rightAnswer] = roundsControl();
+	console.log(`Question: ${randomExpression}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if(userAnswer === rightAnswer) {
+	console.log("Correct!");
+	} else {
+	console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
+	return;	
 }
+};
+    console.log(`Congratulations, ${name}!`);
+};
+export default gameLogic;
