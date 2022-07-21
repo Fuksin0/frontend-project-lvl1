@@ -2,7 +2,6 @@ import readlineSync from "readline-sync";
 import gameLogic from "../index.js";
 
 const calc = () => {
-
 const gameTask = 'What is the result of the expression?';
 
 const calcGame = () => {
