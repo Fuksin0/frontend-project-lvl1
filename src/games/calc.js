@@ -4,8 +4,8 @@ import gameLogic from "../index.js";
 
 const gameTask = 'What is the result of the expression?';
 
-const rightAnswersCheck = (num1,num2,random) => {
-switch (random) {
+const rightAnswersCheck = (num1,num2,randomOperand) => {
+switch (randomOperand) {
   case '+':
   return num1 + num2;
   break;
@@ -22,12 +22,12 @@ switch (random) {
 
 const calcCore = () => {
 const operands = ["+", "-", "*"];
-const random = operands[randomNumber(0, operands.length - 1)];
+const randomOperand = operands[randomNumber(0, operands.length - 1)];
 const num1 = randomNumber(1,25);
 const num2 = randomNumber(1,25);
-const randomexp = `${num1} ${random} ${num2}`;
-const rightAnswer = rightAnswersCheck(num1,num2,random).toString();
-return [rightAnswer, randomexp];
+const randomExpression = `${num1} ${randomOperand} ${num2}`;
+const rightAnswer = rightAnswersCheck(num1,num2,randomOperand).toString();
+return [rightAnswer, randomExpression];
 };
 
 const calcGame = () => gameLogic(calcCore, gameTask);
