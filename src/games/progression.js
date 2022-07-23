@@ -11,19 +11,20 @@ const iter = (start,step,length) => {
 	return result;
 };
 
-const game = () => {
+const progressionGame = () => {
 const step = randomNumber(1, 5);
 const length = randomNumber(5, 10);
 const start = randomNumber(1, 55);
   const value = iter(start, step, length);
   const hiddenNumber = randomNumber(1,value.length - 1);
-  const rightAnswer = String(value[hiddenNumber]);
+  const rightAnswer = value[hiddenNumber].toString();
   value[hiddenNumber] = '..';
   const question = value.join(' ');
-  return [question, rightAnswer];
+  return [rightAnswer, question];
 
 };
-const startGame = () => gameLogic(gameTask,game);
+
+const startGame = () => gameLogic(progressionGame, gameTask);
 
 export default startGame;
 
