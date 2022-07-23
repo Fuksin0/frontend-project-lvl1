@@ -6,10 +6,10 @@ console.log('Welcome to the Brain Games!');
 
 const name = readlineSync.question('May i have your name? ');
 console.log(`Hello, ${name}!`);
+const roundsCount = 3;
 
 console.log(gameTask);
 
-const roundsCount = 3;
 
 for(let i = 0;i < roundsCount;i += 1){
     const [rightAnswer, value] = roundsControl();

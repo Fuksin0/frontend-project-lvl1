@@ -1,39 +1,35 @@
-import readlineSync from "readline-sync";
+import randomNumber from "../random.js";
 import gameLogic from "../index.js";
 
-const calc = () => {
+
 const gameTask = 'What is the result of the expression?';
 
-const calcGame = () => {
-
-const randomNumber = (number) => Math.floor(Math.random() * number);
-const num1 = randomNumber(25);
-const num2 = randomNumber(25);
-
-const operands = ["+", "-", "*"];
-const random =  Math.floor(Math.random() * operands.length);//random math operand
-
-const randomExpression = `${num1}${operands[random]}${num2}`;
-
-let result = 0;
-switch (operands[random]) {
+const rightAnswersCheck = (num1,num2,random) => {
+switch (random) {
   case '+':
-  result = num1 + num2;
+  return num1 + num2;
   break;
   case '-':
-  result = num1 - num2;
+  return num1 - num2;
    break;
   case '*':
-  result = num1 * num2;
+  return num1 * num2;
   break;
   default:
   return 'unknown operands';
-};
-result = result.toString();
-
-	return [randomExpression,result];
-};
-	gameLogic(gameTask, calcGame);
+}
 };
 
-export default calc;
+const calcCore = () => {
+const operands = ["+", "-", "*"];
+const random = operands[randomNumber(0, operands.length - 1)];
+const num1 = randomNumber(1,25);
+const num2 = randomNumber(1,25);
+const randomexp = `${num1} ${random} ${num2}`;
+const rightAnswer = rightAnswersCheck(num1,num2,random).toString();
+return [rightAnswer, randomexp];
+};
+
+const calcGame = () => gameLogic(calcCore, gameTask);
+
+export default calcGame;
