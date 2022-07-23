@@ -1,8 +1,8 @@
-import readlineSync from "readline-sync";
+import randomNumber from "../random.js";
 import gameLogic from "../index.js";
 
 const gameTask = 'Find the greatest common divisor of given numbes.';
-const game = () => {
+
 const gcdGame = (num1, num2) => {
 let gcd;
 while(num1 !== num2) {
@@ -17,17 +17,13 @@ return gcd;
 };
 
 const maths = () => {
-
-const randomNumber = (number) => Math.floor(Math.random() * number);
-const num1 = randomNumber(100);
-const num2 = randomNumber(100);
-
+const num1 = randomNumber(0, 100);
+const num2 = randomNumber(0, 100);
 const randomExpression = `${num1} ${num2}`;
-
 const result = gcdGame(num1, num2).toString();
-  return [randomExpression, result];
+  return [result, randomExpression];
 };
 
- gameLogic(gameTask, maths);
-};
-export default game;
+const gcdRound = () => gameLogic(maths, gameTask);
+
+export default gcdRound;
