@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Fuksin0/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Fuksin0/frontend-project-lvl1/actions)
-[![Maintainability](<a href="https://codeclimate.com/github/Fuksin0/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/df4f58373d5a27f30632/maintainability" /></a>)
+<a href="https://codeclimate.com/github/Fuksin0/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/df4f58373d5a27f30632/maintainability" /></a>
 
 This is a project of several thinking games.
 
@@ -24,4 +24,4 @@ brain-progression
 [![asciicast](https://asciinema.org/a/d9SXF3SAdJf0PiUCKMBmt7IO0)
 
 brain-prime
-[![asciicast](https://asciinema.org/a/7qoSaK6lznBurJyvTnq81kA8D)
+[![asciicast](https://asciinema.org/a/7qoSaK6lznBurJyvTnq81kA8D.svg)](https://asciinema.org/a/7qoSaK6lznBurJyvTnq81kA8D)
